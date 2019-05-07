@@ -1,7 +1,7 @@
 $('#login_button').on('click', function(){
 
-  email = $('#email').val();
-  password = $('password').val();
+  let email = $('#email').val();
+  let password = $('password').val();
   // cargar email y password
 
   json_to_send = {
