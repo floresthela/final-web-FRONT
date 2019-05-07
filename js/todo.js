@@ -13,8 +13,8 @@ function updateTodo(id, completed) {
   };
   json_to_send = JSON.stringify(json_to_send);
   $.ajax({
-      url: 'http://localhost:3000/todos/' + id,
-      // url: 'https://tuapp.herokuapp.com/todos',
+      //url: 'http://localhost:3000/todos/' + id,
+      url: 'https://flor-exfinal-web.herokuapp.com/todos'+id,
       headers: {
           'Content-Type':'application/json',
           'Authorization': 'Bearer ' + token
@@ -34,8 +34,8 @@ function updateTodo(id, completed) {
 
 function loadTodos() {
   $.ajax({
-    url: 'http://localhost:3000/todos',
-    // url: 'https://tuapp.herokuapp.com/todos',
+    //url: 'http://localhost:3000/todos',
+    url: 'https://flor-exfinal-web.herokuapp.com/todos',
     headers: {
         'Content-Type':'application/json',
         'Authorization': 'Bearer ' + token
@@ -48,6 +48,14 @@ function loadTodos() {
       for( let i = 0; i < data.length; i++) {
         // aqui va su código para agregar los elementos de la lista
         console.log(data[i].description)
+
+        let lista = document.getElementById('unfinished-list');
+        let listac = document.getElementById('finished-list');
+        if(data[i].completed){
+          listac.appendChild(createListElement(data[i]._id, data[i].description,data[i].completed));
+        } else{
+          lista.appendChild(createListElement(data[i]._id, data[i].description));
+        }
         // algo asi:
         // addTodo(data[i]._id, data[i].description, data[i].completed)
       }
@@ -78,8 +86,8 @@ input.addEventListener('keypress', function (event) {
     };
     json_to_send = JSON.stringify(json_to_send);
     $.ajax({
-      url: 'http://localhost:3000/todos',
-      // url: 'https://tuapp.herokuapp.com/todos',
+      //url: 'http://localhost:3000/todos',
+      url: 'https://flor-exfinal-web.herokuapp.com/todos',
       headers: {
           'Content-Type':'application/json',
           'Authorization': 'Bearer ' + token

@@ -1,6 +1,11 @@
 
 $('#signup_button').on('click', function(){
   // cargar los valores de password, email, name, age
+  password = $('#password').val();
+  email = $('#email').val();
+  name = $('#name').val();
+  age = $('#age').val();
+
   json_to_send = {
     "password" : password,
     "email": email,
@@ -11,8 +16,8 @@ $('#signup_button').on('click', function(){
   json_to_send = JSON.stringify(json_to_send);
 
   $.ajax({
-    url: 'http://localhost:3000/users',
-    // url: 'https://tuapp.herokuapp.com/users',
+    //url: 'http://localhost:3000/users',
+    url: 'https://flor-exfinal-web.herokuapp.com/users',
     headers: {
         'Content-Type':'application/json'
     },

@@ -1,4 +1,7 @@
 $('#login_button').on('click', function(){
+
+  email = $('#email').val();
+  password = $('password').val();
   // cargar email y password
 
   json_to_send = {
@@ -9,8 +12,8 @@ $('#login_button').on('click', function(){
   json_to_send = JSON.stringify(json_to_send);
 
   $.ajax({
-    url: 'http://localhost:3000/users/login',
-    // url: 'https://tuapp.herokuapp.com/users/login',
+    //url: 'http://localhost:3000/users/login',
+    url: 'https://flor-exfinal-web.herokuapp.com/users/login',
     headers: {
         'Content-Type':'application/json'
     },
